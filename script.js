@@ -14,12 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(form);
         const dataPayload = Object.fromEntries(formData.entries());
 
-        // Dynamically use the same host that served this page.
-        // When opened via Flask (http://192.168.x.x:5000), this points
-        // to your PC's Flask server automatically on any device.
-        const serverHost = window.location.hostname || '127.0.0.1';
-        const serverPort = window.location.port || '5000';
-        const backendURL = `http://${serverHost}:${serverPort}/register`;
+        // Use a relative URL for the API.
+        // This automatically works regardless of how the page was loaded
+        // (localhost, local Wi-Fi IP, or global internet tunnel).
+        const backendURL = '/register';
 
         try {
             const response = await fetch(backendURL, {
