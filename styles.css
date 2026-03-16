@@ -229,16 +229,61 @@ select:focus {
     z-index: 10;
 }
 
-/* Responsive */
+/* Responsive Adjustments for Mobile */
 @media (max-width: 600px) {
+    body {
+        /* Ensure easy scrolling on smaller screens if content is long */
+        align-items: flex-start;
+        padding: 20px 0;
+    }
+
     .glass-container {
         padding: 30px 20px;
-        margin: 20px;
+        margin: 15px; /* Adjust outer margin */
         border-radius: 20px;
+        width: calc(100% - 30px); /* Fill screen but leave margin */
+    }
+
+    .form-header h2 {
+        font-size: 26px; /* Smaller header for mobile */
     }
 
     .input-row {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px; /* Tighter gap in column mode */
+    }
+
+    form {
+        gap: 15px; /* Reduce gaps among all groups */
+    }
+
+    input, select {
+        padding: 12px;
+        font-size: 14px; /* Slightly smaller text for inputs */
+    }
+
+    .submit-btn {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    /* Adjust background shapes to prevent layout breakout */
+    .shape-1 {
+        width: 250px;
+        height: 250px;
+        top: -50px;
+        left: -50px;
+    }
+
+    .shape-2 {
+        width: 200px;
+        height: 200px;
+        bottom: -20px;
+        right: -20px;
+    }
+
+    .shape-3 {
+        width: 300px;
+        height: 300px;
     }
 }
