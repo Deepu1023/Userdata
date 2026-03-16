@@ -239,27 +239,34 @@ select:focus {
 
     .glass-container {
         padding: 30px 20px;
-        margin: 15px; /* Adjust outer margin */
+        margin: 15px;
+        /* Adjust outer margin */
         border-radius: 20px;
-        width: calc(100% - 30px); /* Fill screen but leave margin */
+        width: calc(100% - 30px);
+        /* Fill screen but leave margin */
     }
 
     .form-header h2 {
-        font-size: 26px; /* Smaller header for mobile */
+        font-size: 26px;
+        /* Smaller header for mobile */
     }
 
     .input-row {
         flex-direction: column;
-        gap: 15px; /* Tighter gap in column mode */
+        gap: 15px;
+        /* Tighter gap in column mode */
     }
 
     form {
-        gap: 15px; /* Reduce gaps among all groups */
+        gap: 15px;
+        /* Reduce gaps among all groups */
     }
 
-    input, select {
+    input,
+    select {
         padding: 12px;
-        font-size: 14px; /* Slightly smaller text for inputs */
+        font-size: 14px;
+        /* Slightly smaller text for inputs */
     }
 
     .submit-btn {
