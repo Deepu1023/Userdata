@@ -4,7 +4,8 @@ import sqlite3
 import os
 
 app = Flask(__name__)
-CORS(app) # Enable CORS for all routes so the frontend can communicate with it
+# Allow all origins so mobile browsers on the same Wi-Fi can access the API
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 DB_FILE = "users.db"
 
@@ -64,7 +65,9 @@ def register():
 if __name__ == '__main__':
     # Initialize the database file and table on startup
     init_db()
-    
-    # Run the Flask app
-    print("Starting Flask server on http://127.0.0.1:5000")
-    app.run(debug=True, port=5000)
+
+    # Bind to 0.0.0.0 so mobile devices on the same Wi-Fi network can reach the server
+    print("Starting Flask server...")
+    print("  Local:   http://127.0.0.1:5000")
+    print("  Network: http://192.168.100.188:5000  <-- use this on your phone")
+    app.run(debug=True, host='0.0.0.0', port=5000)

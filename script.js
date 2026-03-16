@@ -12,11 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.style.opacity = '0.8';
         submitBtn.style.pointerEvents = 'none';
 
-        // Send data to the local backend using Fetch API
-        const formData = new FormData(form);
-        const dataPayload = Object.fromEntries(formData.entries());
+        // Dynamically resolve the backend URL so it works from any device
+        // (PC uses localhost, phone uses the network IP automatically)
+        const serverHost = window.location.hostname || '127.0.0.1';
+        const backendURL = `http://${serverHost}:5000/register`;
 
-        fetch('http://127.0.0.1:5000/register', {
+        fetch(backendURL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
